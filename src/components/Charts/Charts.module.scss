@@ -1,0 +1,17 @@
+.ChartWrapper {
+  background-color: #132737;
+  //   height: 400px;
+  //   width: 500px;
+  width: 100%;
+  grid-column: 1 / -1;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+.Xaxis {
+  background-color: green;
+}
+.chartContainer {
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,118 @@
+.App {
+  /* text-align: center; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  align-items: center;
+  justify-items: center;
+  /* grid-template-rows: repeat(3, 100px); */
+  position: relative;
+  width: 100%;
+}
+
+// .App-header {
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(40px, 1fr));
+  /* background-color: palevioletred; */
+}
+.cloud-animetion {
+  width: 100%;
+  height: 100%;
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+  /* background-color: yellow; */
+}
+.location-temp {
+  width: 150px;
+  height: 100px;
+  background-color: greenyellow;
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+  justify-content: center;
+  align-items: center;
+  color: azure;
+}
+.temperature {
+  font-size: 30px;
+  font-weight: bold;
+  color: azure;
+}
+.city {
+  min-width: 100px;
+  height: 30px;
+  background-color: blue;
+  grid-column: 6 /12;
+  grid-row: 1 / 2;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.drop-down {
+  background-color: wheat;
+  width: 30px;
+  height: 30px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  fill: black;
+  /* color: black; */
+}
+.weather-update-wrapper {
+  width: 100%;
+  /* min-height: 250px; */
+  /* grid-row: 3 /-1; */
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  background-color: magenta;
+  border-radius: 20px;
+  height: 100%;
+  /* margin: 10px; */
+}
+.weatherInfo {
+  background-color: rgb(0, 255, 34);
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.weather-icon {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  display: inline-block;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  margin-bottom: 0;
+}
+.active {
+  visibility: visible;
+}
+.btn-show-more {
+  width: 100px;
+  height: 50px;
+  background-color: orangered;
+}
