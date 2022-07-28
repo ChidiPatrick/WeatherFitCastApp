@@ -63,13 +63,14 @@ class Chart extends Component {
   render() {
     const { maxTemp, minTemp } = this.props;
     const tempData = [];
-    maxTemp.forEach((temp, i) => {
-      tempData.push({
-        name: `Day${i + 1}`,
-        maxTemp: temp,
-        minTemp: minTemp[i],
+    if (maxTemp)
+      maxTemp.forEach((temp, i) => {
+        tempData.push({
+          name: `Day${i + 1}`,
+          maxTemp: temp,
+          minTemp: minTemp[i],
+        });
       });
-    });
     console.log(tempData);
     return (
       <div className={styles.ChartWrapper}>

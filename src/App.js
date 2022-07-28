@@ -19,6 +19,7 @@ import MoreDetails from "./components/MoreDetails/MoreDetails";
 import { ImLocation2 } from "react-icons/im";
 import Button from "./components/Button/Button";
 import Chart from "./components/Charts/Charts";
+import FullWeatherInfo from "./components/MyRoutes/MyRoutes";
 
 const MyDiv = styled.div`
   background-color: green;
@@ -106,29 +107,14 @@ class App extends Component {
             }}
           ></Button> */}
         </div>
-        <Chart maxTemp={maxTemp} minTemp={minTemp} />
+        {temp ? <Chart maxTemp={maxTemp} minTemp={minTemp} /> : null}
+        {temp ? <FullWeatherInfo maxTemp={this.state.maxTemp} /> : null}
+
         <MoreDetails windSpeed={windSpeeds} city={city} maxTemp={headerTemp} />
       </div>
     );
   }
-  // showMoreLess = () => {
-  //   if (this.state.showMore) {
-  //     this.showLess();
-  //   } else if (this.state.showLess) {
-  //     this.showMore();
-  //   }
-  // };
-  // showMore = () => {
-  //   this.setState({ temp: this.state.maxTemp, showLess: !this.state.showLess });
-  //   console.log(this.state.showLess);
-  // };
-  // showLess = () => {
-  //   this.setState({
-  //     temp: this.state.lessTemp,
-  //     showMore: !this.state.showMore,
-  //   });
-  //   console.log(this.state.showMore);
-  // };
+
   async getLocation() {
     const geoData = await axios("https://get.geojs.io/v1/ip/geo.json");
     console.log(geoData);
