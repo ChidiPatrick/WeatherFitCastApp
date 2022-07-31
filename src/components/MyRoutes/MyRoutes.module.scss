@@ -1,11 +1,18 @@
 .FullForcast {
-  height: 300px;
-  grid-column: 1 / -1;
+  height: 100%;
+  // grid-column: 1 / -1;
   width: 100%;
-  background-color: orange;
+  // background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .dailyForcast {
   width: 50px;
   height: 100%;
+  color: #fff;
   background-color: black;
+  border: solid 1px wheat;
+  display: flex;
+  flex-direction: column;
 }

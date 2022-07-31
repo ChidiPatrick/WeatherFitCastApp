@@ -20,7 +20,8 @@ import { ImLocation2 } from "react-icons/im";
 import Button from "./components/Button/Button";
 import Chart from "./components/Charts/Charts";
 import FullWeatherInfo from "./components/MyRoutes/MyRoutes";
-
+import { Link, Route, Routes, Switch } from "react-router-dom";
+import FullForcast from "./FullForcast/FullForcast";
 const MyDiv = styled.div`
   background-color: green;
   height: 100px;
@@ -89,7 +90,7 @@ class App extends Component {
               return (
                 <WeatherUpdate
                   key={counter}
-                  className={classNames}
+                  className={className}
                   maxTemp={temp}
                   minTemp={tempMin[i]}
                   weatherCode={weathercode[i]}
@@ -101,15 +102,26 @@ class App extends Component {
           ) : (
             <p>Page not loaded!</p>
           )}
-          {/* <Button
-            clicked={() => {
-              this.showMoreLess();
-            }}
-          ></Button> */}
         </div>
         {temp ? <Chart maxTemp={maxTemp} minTemp={minTemp} /> : null}
-        {temp ? <FullWeatherInfo maxTemp={this.state.maxTemp} /> : null}
-
+        {/* <FullForcast /> */}
+        <Routes>
+          <Route
+            path="/fullForcast"
+            exact
+            strict
+            element={
+              <FullForcast
+                maxTemp={maxTemp}
+                minTemp={tempMin}
+                weatherCode={weathercode}
+                dates={date}
+                // date={date}
+              />
+            }
+          />
+        </Routes>
+        <Link to="/fullForcast">Full Forcast</Link>
         <MoreDetails windSpeed={windSpeeds} city={city} maxTemp={headerTemp} />
       </div>
     );

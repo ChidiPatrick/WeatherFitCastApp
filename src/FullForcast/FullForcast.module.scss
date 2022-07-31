@@ -1,0 +1,12 @@
+.FullForcast {
+  height: 100%;
+  grid-column: 1 / -1;
+  // width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

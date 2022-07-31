@@ -76,19 +76,19 @@ class Chart extends Component {
       <div className={styles.ChartWrapper}>
         <ResponsiveContainer
           className={styles.chartContainer}
-          width={"100%"}
+          width={"99%"}
           height={"100%"}
-          aspect={3}
+          aspect={2}
         >
           <LineChart
             width={730}
             height={250}
             data={tempData}
-            margin={{ top: 30, right: 30, left: 60, bottom: 5 }}
+            margin={{ top: 30, right: 30, left: 0, bottom: 5 }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#fff" />
             <XAxis dataKey="name" tick={{ fill: "#fff" }} />
-            <YAxis tick={{ fill: "#fff" }} />
+            <YAxis tick={{ fill: "#fff" }} height="100%" />
             <Tooltip
               contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
               itemStyle={{ color: "#fff" }}

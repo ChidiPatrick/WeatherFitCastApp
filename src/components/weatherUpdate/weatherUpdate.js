@@ -16,8 +16,8 @@ const WeatherUpdate = (props) => {
   }).format(newDate);
   if (weatherCode >= 1 && weatherCode <= 3) {
     return (
-      <div className={className}>
-        <div className="">
+      <div className={styles.weatherInfo}>
+        <div className={styles.innerWrapper}>
           <figure className="weather-icon">
             <img
               src="./Images/imgs/clouds.gif"
@@ -25,9 +25,11 @@ const WeatherUpdate = (props) => {
               alt="weatther image"
             />
           </figure>
-          <div>
-            {dates.indexOf(date) === 0 ? "Today" : formatedDate}: Cloudy{" "}
-            {maxTemp}°C/{minTemp}°C
+          <div className={styles.weatherWrapper}>
+            <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>
+              Cloudy {maxTemp}°C/{minTemp}°C
+            </span>
           </div>
         </div>
         {/* <wrapper></wrapper> */}
@@ -35,8 +37,8 @@ const WeatherUpdate = (props) => {
     );
   } else if (weatherCode >= 51 && weatherCode <= 55) {
     return (
-      <div className={className}>
-        <div className="">
+      <div className={styles.weatherInfo}>
+        <div className={styles.innerWrapper}>
           <figure className="weather-icon">
             <img
               src="./Images/imgs/drizzle.gif"
@@ -45,8 +47,10 @@ const WeatherUpdate = (props) => {
             />
           </figure>
           <div>
-            {dates.indexOf(date) === 0 ? "Today" : formatedDate}: Drizzle{" "}
-            {maxTemp}°C/{minTemp}°C
+            <span> {dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>
+              Drizzle {maxTemp}°C/{minTemp}°C
+            </span>
           </div>
         </div>
         {/* <wrapper></wrapper> */}
@@ -54,8 +58,8 @@ const WeatherUpdate = (props) => {
     );
   } else if (weatherCode >= 71 && weatherCode <= 75) {
     return (
-      <div className={className}>
-        <div className="">
+      <div className={styles.weatherInfo}>
+        <div className={styles.innerWrapper}>
           <figure className="weather-icon">
             <img
               src="./Images/imgs/snow.gif"
@@ -63,9 +67,11 @@ const WeatherUpdate = (props) => {
               alt="weatther image"
             />
           </figure>
-          <div>
-            {dates.indexOf(date) === 0 ? "Today" : formatedDate}: Snow Fall{" "}
-            {maxTemp}°C/{minTemp}°C
+          <div className={styles.weatherWrapper}>
+            <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>
+              Snow Fall {maxTemp}°C/{minTemp}°C
+            </span>
           </div>
         </div>
         {/* <wrapper></wrapper> */}
@@ -73,8 +79,8 @@ const WeatherUpdate = (props) => {
     );
   } else if (weatherCode >= 80 && weatherCode <= 82) {
     return (
-      <div className={className}>
-        <div className="">
+      <div className={styles.weatherInfo}>
+        <div className={styles.innerWrapper}>
           <figure className="weather-icon">
             <img
               src="./Images/imgs/rain.gif"
@@ -82,9 +88,12 @@ const WeatherUpdate = (props) => {
               alt="weatther image"
             />
           </figure>
-          <div>
-            {dates.indexOf(date) === 0 ? "Today" : formatedDate}: Rain showers{" "}
-            {maxTemp}°C/{minTemp}°C
+          <div className={styles.weatherWrapper}>
+            <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+
+            <span>
+              Rain showers {maxTemp}°C/{minTemp}°C
+            </span>
           </div>
         </div>
         {/* <wrapper></wrapper> */}
@@ -92,8 +101,8 @@ const WeatherUpdate = (props) => {
     );
   } else if (weatherCode >= 95 && weatherCode <= 99) {
     return (
-      <div className={className}>
-        <div className="">
+      <div className={styles.weatherInfo}>
+        <div className={styles.innerWrapper}>
           <figure className="weather-icon">
             <img
               src="./Images/imgs/thunder.gif"
@@ -101,9 +110,12 @@ const WeatherUpdate = (props) => {
               alt="weatther image"
             />
           </figure>
-          <div>
-            {dates.indexOf(date) === 0 ? "Today" : formatedDate}:Thunder Storm{" "}
-            {maxTemp}°C/{minTemp}°C
+          <div className={styles.weatherWrapper}>
+            <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+
+            <span>
+              Rain (Thunder Storm) {maxTemp}°C/{minTemp}°C
+            </span>
           </div>
         </div>
         {/* <wrapper></wrapper> */}
@@ -111,8 +123,8 @@ const WeatherUpdate = (props) => {
     );
   } else if (weatherCode === 0) {
     return (
-      <div className={className}>
-        <div className="">
+      <div className={styles.weatherInfo}>
+        <div className={styles.innerWrapper}>
           <figure className="weather-icon">
             <img
               src="./Images/imgs/sun.gif"
@@ -120,12 +132,13 @@ const WeatherUpdate = (props) => {
               alt="weatther image"
             />
           </figure>
-          <div>
-            {dates.indexOf(date) === 0 ? "Today" : formatedDate}:Clear sky{" "}
-            {maxTemp}°C/{minTemp}°C
+          <div className={styles.weatherWrapper}>
+            <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>
+              Clear sky {maxTemp}°C/{minTemp}°C
+            </span>
           </div>
         </div>
-        {/* <wrapper></wrapper> */}
       </div>
     );
   }

@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import styles from "./MyRoutes.module.scss";
 import WeatherUpdate from "../weatherUpdate/weatherUpdate";
+import FullForcast from "../../FullForcast/FullForcast";
+import { Routes, Route } from "react-router";
 class FullWeatherInfo extends Component {
-  // const {maxTemp} = this.props
-  state = {};
+  // state = { maxTemp: 30 };
   render() {
     const { maxTemp } = this.props;
     console.log(maxTemp);
-    return <div className={styles.FullForcast}></div>;
+    // let counter = 0;
+    return (
+      <Routes>
+        <Route path="/fullForcast" exact strict element={<FullForcast />} />
+      </Routes>
+    );
   }
 }
 export default FullWeatherInfo;

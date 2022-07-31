@@ -3,7 +3,8 @@
   // grid-template-columns: repeat(2, minmax(100px, 1fr));
   // grid-template-rows: repeat(2, 50px);
   width: 100%;
-  background-color: rgba(120, 120, 204, 0.5);
+  // background-color: rgba(120, 120, 204, 0.5);
+  background-color: rgba(0, 0, 0, 0.09);
   grid-column: 1 / -1;
 }
 .parameter {
