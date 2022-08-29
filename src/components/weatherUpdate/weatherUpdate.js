@@ -27,8 +27,9 @@ const WeatherUpdate = (props) => {
           </figure>
           <div className={styles.weatherWrapper}>
             <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>Cloudy</span>
             <span>
-              Cloudy {maxTemp}°C/{minTemp}°C
+              {maxTemp}°C/{minTemp}°C
             </span>
           </div>
         </div>
@@ -48,8 +49,9 @@ const WeatherUpdate = (props) => {
           </figure>
           <div>
             <span> {dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>Drizzle</span>
             <span>
-              Drizzle {maxTemp}°C/{minTemp}°C
+              {maxTemp}°C/{minTemp}°C
             </span>
           </div>
         </div>
@@ -69,8 +71,9 @@ const WeatherUpdate = (props) => {
           </figure>
           <div className={styles.weatherWrapper}>
             <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>Snow Fall</span>
             <span>
-              Snow Fall {maxTemp}°C/{minTemp}°C
+              {maxTemp}°C/{minTemp}°C
             </span>
           </div>
         </div>
@@ -91,8 +94,9 @@ const WeatherUpdate = (props) => {
           <div className={styles.weatherWrapper}>
             <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
 
+            <span>Rain showers</span>
             <span>
-              Rain showers {maxTemp}°C/{minTemp}°C
+              {maxTemp}°C/{minTemp}°C
             </span>
           </div>
         </div>
@@ -113,8 +117,9 @@ const WeatherUpdate = (props) => {
           <div className={styles.weatherWrapper}>
             <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
 
+            <span>Rain (Thunder Storm)</span>
             <span>
-              Rain (Thunder Storm) {maxTemp}°C/{minTemp}°C
+              {maxTemp}°C/{minTemp}°C
             </span>
           </div>
         </div>
@@ -134,8 +139,9 @@ const WeatherUpdate = (props) => {
           </figure>
           <div className={styles.weatherWrapper}>
             <span>{dates.indexOf(date) === 0 ? "Today" : formatedDate}</span>
+            <span>Clear sky</span>
             <span>
-              Clear sky {maxTemp}°C/{minTemp}°C
+              {maxTemp}°C/{minTemp}°C
             </span>
           </div>
         </div>
@@ -143,10 +149,10 @@ const WeatherUpdate = (props) => {
     );
   }
 };
-export const MyButton = styled.button`
-  background-color: green;
-  color: black;
-  width: 200px;
-  padding: 20px;
-`;
+// export const MyButton = styled.button`
+//   background-color: green;
+//   color: black;
+//   width: 200px;
+//   padding: 20px;
+// `;
 export default WeatherUpdate;

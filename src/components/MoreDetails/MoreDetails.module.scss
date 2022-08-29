@@ -13,6 +13,10 @@
   align-items: center;
   border-top: 1px solid whitesmoke;
   border-left: 1px solid whitesmoke;
+  height: 50px;
+  @media (min-width: 570px) {
+    height: 80px;
+  }
 }
 .param {
   display: flex;
@@ -29,6 +33,9 @@
   align-items: center;
   width: 100%;
   padding-left: 30px;
+  @media (min-width: 570px) {
+    font-size: 28px;
+  }
 }
 .paramData {
   color: white;
@@ -36,12 +43,19 @@
   justify-content: space-between;
   width: 80%;
   margin: 0 30px;
+  @media (min-width: 570px) {
+    font-size: 25px;
+  }
 }
 .icon {
   width: 30px;
   height: 30px;
   // background-color: #fff;
   fill: rgba(228, 226, 226, 0.966);
+  @media (min-width: 570px) {
+    width: 40px;
+    height: 40px;
+  }
 }
 .paragraph {
   width: 100%;
@@ -49,9 +63,12 @@
   color: whitesmoke;
   font-size: 20px;
   padding-left: 10px;
+  @media (min-width: 570px) {
+    font-size: 30px;
+  }
 }
 .innerWrapper {
   display: grid;
   grid-template-columns: repeat(2, minmax(100px, 1fr));
-  grid-template-rows: repeat(2, 50px);
+  grid-template-rows: repeat(2, minmax(50px, 1fr));
 }

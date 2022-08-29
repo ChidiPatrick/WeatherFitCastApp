@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./DailyForcast.module.scss";
 const DailyForcast = (props) => {
-  const { maxTemp, minTemp, dates, weatherCode, date } = props;
+  const { maxTemp, minTemp, dates, weatherCode, date, history } = props;
   const newDate = new Date(date);
-  console.log(date);
+
   let formatedDate = Intl.DateTimeFormat("en", {
     day: "numeric",
 

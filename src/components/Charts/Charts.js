@@ -57,61 +57,65 @@ const data = [
     amt: 2100,
   },
 ];
-class Chart extends Component {
-  static demoUrl = "https://codesandbox.io/s/simple-line-chart-kec3v";
-
-  render() {
-    const { maxTemp, minTemp } = this.props;
-    const tempData = [];
-    if (maxTemp)
-      maxTemp.forEach((temp, i) => {
-        tempData.push({
-          name: `Day${i + 1}`,
-          maxTemp: temp,
-          minTemp: minTemp[i],
-        });
+const Chart = (props) => {
+  const { maxTemp, minTemp, dates } = props;
+  const tempData = [];
+  // const newDate = new Date(date);
+  if (maxTemp)
+    maxTemp.forEach((temp, i) => {
+      const newDate = new Date(dates[i]);
+      let formatedDate = Intl.DateTimeFormat("en", {
+        // day: "numeric",
+        weekday: "short",
+        // month: "short",
+      }).format(newDate);
+      tempData.push({
+        date: formatedDate,
+        maxTemp: temp,
+        minTemp: minTemp[i],
       });
-    console.log(tempData);
-    return (
-      <div className={styles.ChartWrapper}>
-        <ResponsiveContainer
-          className={styles.chartContainer}
-          width={"99%"}
-          height={"100%"}
-          aspect={2}
+    });
+  console.log(tempData);
+  return (
+    <div className={styles.ChartWrapper}>
+      <ResponsiveContainer
+        className={styles.chartContainer}
+        width={"99%"}
+        height={"100%"}
+        aspect={2}
+      >
+        <LineChart
+          width={730}
+          height={250}
+          data={tempData}
+          margin={{ top: 30, right: 30, left: 0, bottom: 5 }}
         >
-          <LineChart
-            width={730}
-            height={250}
-            data={tempData}
-            margin={{ top: 30, right: 30, left: 0, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#fff" />
-            <XAxis dataKey="name" tick={{ fill: "#fff" }} />
-            <YAxis tick={{ fill: "#fff" }} height="100%" />
-            <Tooltip
-              contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
-              itemStyle={{ color: "#fff" }}
-            />
-            <Legend />
-            <Line
-              type="monotone"
-              dataKey="maxTemp"
-              stroke="green"
-              dot={{ strokeWidth: 4, stroke: "red" }}
-              activeDot={{ r: 6 }}
-            />
-            <Line
-              type="monotone"
-              dataKey="minTemp"
-              stroke="orange"
-              dot={{ strokeWidth: 2 }}
-              activeDot={{ r: 6 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-    );
-  }
-}
+          <CartesianGrid strokeDasharray="3 3" stroke="#fff" />
+          <XAxis dataKey="date" tick={{ fill: "#fff" }} />
+          <YAxis tick={{ fill: "#fff" }} height="100%" vertical={false} />
+          <Tooltip
+            contentStyle={{ backgroundColor: "#8884d8", color: "#fff" }}
+            itemStyle={{ color: "#fff" }}
+          />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="maxTemp"
+            stroke="Red"
+            dot={{ strokeWidth: 6, stroke: "rgb(236, 236, 236)" }}
+            activeDot={{ r: 8 }}
+          />
+          <Line
+            type="monotone"
+            dataKey="minTemp"
+            stroke="#fff"
+            dot={{ strokeWidth: 2 }}
+            activeDot={{ r: 6 }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
+
 export default Chart;

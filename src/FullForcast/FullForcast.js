@@ -1,13 +1,16 @@
-import React from "react";
-import { Routes, Route } from "react-router";
+import React, { useEffect, useCallback } from "react";
+import axios from "axios";
 import styles from "./FullForcast.module.scss";
 import WeatherUpdate from "../components/weatherUpdate/weatherUpdate";
 import DailyForcast from "../DailyForcast/DailyForcast";
+import { Routes, Route, Link } from "react-router-dom";
+
 const FullForcast = (props) => {
-  const { maxTemp, minTemp, dates, weatherCode, date } = props;
-  console.log(`Max temp: ${maxTemp}`);
+  const { maxTemp, minTemp, dates, weatherCode } = props;
+
   return (
     <div className={styles.FullForcast}>
+      {console.log(maxTemp)}
       {maxTemp ? (
         maxTemp.map((temp, i) => {
           return (
@@ -17,6 +20,7 @@ const FullForcast = (props) => {
               weatherCode={weatherCode[i]}
               date={dates[i]}
               dates={dates}
+              key={i}
             />
           );
         })
@@ -27,31 +31,3 @@ const FullForcast = (props) => {
   );
 };
 export default FullForcast;
-//  <WeatherUpdate
-// dates={dates}
-// maxTemp={temp}
-// minTemp={maxTemp[i]}
-// weatherCode={weatherCode[i]}
-// date={dates[i]}
-// />
-{
-  /* // if (weatherCode >= 1 && weatherCode <= 3) { */
-  //     return (
-  //       <div className={className}>
-  //         <div className="">
-  //           <figure className="weather-icon">
-  //             <img
-  //               src="./Images/imgs/clouds.gif"
-  //               className={styles.weatherImage}
-  //               alt="weatther image"
-  //             />
-  //           </figure>
-  //           <div>
-  //             {dates.indexOf(date) === 0 ? "Today" : formatedDate}: Cloudy{" "}
-  //             {maxTemp}°C/{minTemp}°C
-  //           </div>
-  //         </div>
-  //         {/* <wrapper></wrapper> */}
-  //       </div>
-  //     );
-}
