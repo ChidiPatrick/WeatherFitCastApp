@@ -4,7 +4,6 @@ import { WiCloudyGusts, WiThermometer, WiSunrise } from "react-icons/wi";
 import { ImLocation2 } from "react-icons/im";
 const MoreDetails = (props) => {
   const { windSpeed, city, maxTemp } = props;
-  console.log(windSpeed);
   return (
     <div className={styles.wrapper}>
       <p className={styles.paragraph}>Details</p>

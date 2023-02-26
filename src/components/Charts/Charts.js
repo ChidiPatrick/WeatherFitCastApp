@@ -75,7 +75,6 @@ const Chart = (props) => {
         minTemp: minTemp[i],
       });
     });
-  console.log(tempData);
   return (
     <div className={styles.ChartWrapper}>
       <ResponsiveContainer

@@ -1,28 +1,25 @@
 import React from "react";
 import Header from "../Header/header";
-// import Video from "./videos/moving-cloud-anime.mp4";
-
 import axios from "axios";
-
-import styles from "../Header/Header.module.scss";
 import DayTemp from "../Header/DayTemperature/DayTemperature";
 import VideoElement from "../Header/BackgroundVideos/BackgroundVideo";
 import MoreDetails from "../MoreDetails/MoreDetails";
 import { ImLocation2 } from "react-icons/im";
-
 import Chart from "../Charts/Charts";
-import FullWeatherInfo from "../MyRoutes/MyRoutes";
-import { Link, Route, Routes, Switch, useNavigate } from "react-router-dom";
-import FullForcast from "../../FullForcast/FullForcast";
+import { useNavigate } from "react-router-dom";
 import UpdateStyles from "../weatherUpdate/weatherInfo.module.scss";
 import { useState, useEffect } from "react";
 import { useCallback } from "react";
-
 import WeatherUpdate from "../weatherUpdate/weatherUpdate";
 import Spinner from "../LoadingSpinner/LoadingSpinner";
+import { useGeolocated } from "react-geolocated";
 export let forcastData;
 
 const MyApp = (props) => {
+  const {coords,isGeolocationAvailable,isGeolocationEnabled} = useGeolocated({
+    positionOptions: {enableHighAccuracy: false},
+    userDecisionTimeout: 5000,
+  })
   const [cordinates, setCordinates] = useState({
     longitude: null,
     latitude: null,
@@ -44,7 +41,6 @@ const MyApp = (props) => {
 
   const getLocation = useCallback(async () => {
     const geoData = await axios("https://get.geojs.io/v1/ip/geo.json");
-    console.log(geoData);
     const { longitude, latitude, city, country } = geoData.data;
     const cordsData = {
       longitude: longitude,
@@ -53,17 +49,13 @@ const MyApp = (props) => {
       country: country,
     };
     const cityCordinate = [parseFloat(longitude), parseFloat(latitude)];
-
+    
     return [cityCordinate, cordsData];
   }, []);
-  // async function getLocation() {
-
-  // }
   const fetchWeatherData = useCallback(async (longitude, latitude) => {
     const weatherData = await axios(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&timezone=UTC&daily=temperature_2m_max,temperature_2m_min&daily=weathercode,windspeed_10m_max,sunrise`
     );
-    console.log(weatherData);
     if (weatherData.status >= 200) {
       setIsLoading(false);
     }
@@ -83,9 +75,6 @@ const MyApp = (props) => {
     const cords = await getLocation();
     const weatherData = await fetchWeatherData(cords[0][0], cords[0][1]);
     setCordinates(cords[1]);
-    console.log(cords);
-    //Destructure fetched data///
-
     const {
       temperature_2m_max: maxTemp,
       temperature_2m_min: minTemp,
@@ -93,10 +82,7 @@ const MyApp = (props) => {
       weathercode,
       windspeed_10m_max: windSpeeds,
     } = weatherData.data.daily;
-    console.log(weatherData);
-    console.log(`Cordinates: ${cords}`);
     ////////////////////////////
-    console.log(weathercode);
     const lessTemp = maxTemp.slice(0, 6);
     const headerTemp = maxTemp[0];
     const temp = lessTemp;
@@ -113,9 +99,6 @@ const MyApp = (props) => {
       lessTemp: lessTemp,
     };
     forcastData = { ...weatherDataObject };
-    console.log(forcastData);
-    console.log(weatherDataObject);
-
     ///Update state//////////////
     setWeatherData(weatherDataObject);
   }
@@ -130,12 +113,9 @@ const MyApp = (props) => {
     lessTemp,
     temp,
   } = weatherData;
-  console.log(dates);
   const { city } = cordinates;
-  console.log(weatherCode);
   const tempMax = maxTemp;
   const tempMin = minTemp;
-
   let counter = 0;
 
   /////////////////
@@ -161,7 +141,6 @@ const MyApp = (props) => {
             return (
               <WeatherUpdate
                 key={counter}
-                // className={className}
                 maxTemp={temp}
                 minTemp={tempMin[i]}
                 weatherCode={weatherCode[i]}
